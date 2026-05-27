@@ -18,7 +18,7 @@
     ════════════════════════════════════════════════════════ */
     .project-hero {
       background: var(--green);
-      padding: 120px 0 0;
+      padding: 60px 0 0;
       position: relative;
       overflow: hidden;
     }
@@ -73,7 +73,8 @@
     }
     .project-title {
       font-family: var(--font-title);
-      font-size: clamp(2.8rem, 6vw, 6rem);
+      /* doubled size */
+      font-size: clamp(2.8rem, 9vw, 9rem);
       line-height: .92; color: var(--cream);
       letter-spacing: -.02em;
     }
@@ -107,6 +108,11 @@
     .project-stat {
       padding: 24px 0;
       border-right: 1px solid rgba(245,237,214,.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
     .project-stat:last-child { border-right: none; }
     .stat-val {
@@ -977,8 +983,17 @@
 
     /* ── Navigate ── */
     function navigate(dir) {
-      const next = currentIndex + dir;
-      if (next < 0 || next >= currentPool.length) return;
+      let next = currentIndex + dir;
+      // On narrow screens (mobile), allow wrap-around looping
+      const isMobile = window.innerWidth <= 720;
+      if (next < 0) {
+        if (isMobile) next = currentPool.length - 1;
+        else return;
+      }
+      if (next >= currentPool.length) {
+        if (isMobile) next = 0;
+        else return;
+      }
       currentIndex = next;
       render();
     }
