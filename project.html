@@ -446,12 +446,16 @@
        RESPONSIVE
     ════════════════════════════════════════════════════════ */
     @media (max-width: 900px) {
-      .project-title-wrap { grid-template-columns: 1fr; gap: 28px; padding-bottom: 40px; }
+      .project-title-wrap { grid-template-columns: 1fr; gap: 28px; padding-bottom: 40px; justify-items: center; text-align: center; }
       .project-stats { grid-template-columns: repeat(2, 1fr); }
       .project-stat { border-right: none; border-bottom: 1px solid rgba(245,237,214,.08); padding: 20px 0; }
       .project-stat:nth-child(2n) { padding-left: 24px; }
       .overview-grid { grid-template-columns: 1fr; gap: 40px; }
       .process-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .project-hero .container { display: flex; flex-direction: column; align-items: center; }
+      .project-meta-strip { justify-content: center; }
+      .back-link { margin-left: auto; margin-right: auto; }
+      .project-blurb-col { display: flex; flex-direction: column; align-items: center; }
     }
     @media (max-width: 640px) {
       .project-stats { grid-template-columns: repeat(2, 1fr); }
@@ -465,7 +469,7 @@
 
   <!-- ── NAV ─────────────────────────────────────────────── -->
   <nav>
-    <div class="nav-logo"KZ.</div>
+    <div class="nav-logo">KZ.</div>
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#work" style="color:var(--cream);">Work</a></li>

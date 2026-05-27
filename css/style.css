@@ -87,7 +87,7 @@ body::before {
 .cursor.grow { width: 36px; height: 36px; background: var(--purple); }
 
 /* ── LAYOUT ──────────────────────────────────────────────── */
-.container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 25px 32px 0 32px; }
 section { padding: 96px 0; }
 
 /* ── NAV ─────────────────────────────────────────────────── */
@@ -193,8 +193,9 @@ nav {
 }
 .hero-inner {
   flex: 1; display: grid; grid-template-columns: 1fr 1fr;
-  align-items: end; max-width: 1160px; width: 100%;
-  margin: 0 auto; padding: 80px 32px 0;
+  align-items: center; max-width: 1160px; width: 100%;
+  margin: 0 auto; padding: 0 32px;
+  min-height: calc(100svh - 64px);
   position: relative; z-index: 2; gap: 0;
 }
 .hero-text { padding-bottom: 72px; }
@@ -360,7 +361,7 @@ h2.section-title .outline { -webkit-text-stroke: 2px var(--green); color: transp
 
 /* ── WORK ────────────────────────────────────────────────── */
 #work { background: var(--surface); }
-.work-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; gap: 24px; }
+  .work-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 15px; gap: 24px; }
 .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
 .project-card {
   display: block;
@@ -543,10 +544,12 @@ footer {
 @media (max-width: 639px) {
   nav { padding: 0 18px; }
 
-  .hero-inner { grid-template-columns: 1fr; padding: 24px 20px 0; }
+  .hero-inner { grid-template-columns: 1fr; padding: 40px 20px 0; }
   .hero-visual { display: none; }
   h1.hero-name { font-size: clamp(3rem, 13vw, 5rem); }
-  .hero-text   { padding-bottom: 56px; }
+  .hero-text   { padding-bottom: 56px; text-align: center; }
+  .hero-actions { justify-content: center; flex-wrap: nowrap; }
+  .hero-actions .btn { white-space: nowrap; }
 
   .about-grid { grid-template-columns: 1fr; gap: 60px; }
   .about-img-wrap { max-width: 280px; margin: 0 auto; }
@@ -554,6 +557,9 @@ footer {
 
   .work-grid { grid-template-columns: 1fr; gap: 14px; }
   .project-card { min-height: auto; }
+  .card-img { height: auto; min-height: 220px; }
+  .card-img span { display: block; width: 100%; height: 100%; }
+  .card-img img { height: auto; }
   .card-1, .card-2, .card-3, .card-4, .card-5 { grid-column: span 1; min-height: auto; }
   .work-header { flex-direction: column; align-items: flex-start; gap: 16px; }
 
